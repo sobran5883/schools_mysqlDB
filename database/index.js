@@ -18,11 +18,11 @@ const db = mysql.createConnection({
 
 app.use(express.json({ limit: "500kb" })); // Set JSON payload limit to 500 KB
 app.use(cors(
-    {
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}
+//     {
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization']
+// }
 ));
 
 
