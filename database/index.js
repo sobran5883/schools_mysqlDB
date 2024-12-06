@@ -3,7 +3,6 @@ import mysql from "mysql";
 import cors from "cors";
 import dotenv from "dotenv";
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
@@ -16,17 +15,16 @@ const db = mysql.createConnection({
     port: process.env.DB_PORT,
 });
 
-app.use(express.json({ limit: "500kb" })); // Set JSON payload limit to 500 KB
+app.use(express.json({ limit: "500kb" }));
 app.use(cors(
-//     {
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// }
+    {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}
 ));
 
 
-// Test the database connection
 db.connect((err) => {
     if (err) {
         console.error("Error connecting to the database:", err);
@@ -112,7 +110,7 @@ app.get("/schools/:id", (req, res) => {
         if (err) {
             return res.json(err);
         }
-        return res.json(data[0]); // Send the school object
+        return res.json(data[0]);
     });
 });
 
